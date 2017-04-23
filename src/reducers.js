@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import data from './data';
 
 const initialStateEditor = {
   title: '',
@@ -13,7 +14,7 @@ const editor = (state = initialStateEditor, action) => {
   }
 };
 
-const posts = (state = [], action) => {
+const posts = (state = data, action) => {
   switch(action.type) {
   	default:
       return state;

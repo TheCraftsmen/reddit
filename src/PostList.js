@@ -1,17 +1,14 @@
 import React from 'react';
-import data from './data';
 import Post from './Post';
 
 import { connect } from 'react-redux';
 
-const PostList = () => {
+const PostList = (data) => {
   console.log(data);
   return (
        <ul >
-         <li>aca</li>
-         <li>tuca</li>
          {
-         	data.map( d => ( <Post  key={ d.id } {...d} /> )  )
+         	data.posts.map( d => ( <Post  key={ d.id } {...d} /> )  )
          }
        </ul>
   );
