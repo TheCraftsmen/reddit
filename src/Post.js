@@ -1,14 +1,20 @@
 import React from 'react';
-import { changeVote } from './actions';
+import { changeVote, changeEditing, changeTitle } from './actions';
 import { connect } from 'react-redux';
 
 
-const Post = ({ posts, id, title, vote, changeVote }) => {
+const Post = ({ posts, id, title, vote, editing, changeVote, changeEditing, changeTitle }) => {
 	return(
 
 		<li>
 		<div>
-			<h5>{ title }</h5>
+			{ editing ? 
+				<input autoFocus
+				type="text" 
+				defaultValue={ title} 
+				onChange={ e => changeTitle(id, e.target.value)}
+				onBlur={ e => changeEditing(id, false) }/> : 
+				<h5 onClick={ e => changeEditing(id, true) }>{ title }</h5> } 
 			<p>
 			<a onClick={ e=> changeVote( id, false)}> - </a> 
 			{ vote } 
@@ -19,4 +25,4 @@ const Post = ({ posts, id, title, vote, changeVote }) => {
 }
 
 
-export default connect( state => state, {changeVote})(Post);
+export default connect( state => state, {changeVote, changeEditing, changeTitle})(Post);

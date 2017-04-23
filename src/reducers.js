@@ -8,6 +8,8 @@ const initialStateEditor = {
 const SUBMIT_POST = 'SUBMIT_POST';
 const TITLE_CHANGE = 'TITLE_CHANGE';
 const CHANGE_VOTE = 'CHANGE_VOTE';
+const CHANGE_EDITING = 'CHANGE_EDITING';
+const CHANGE_TITLE = 'CHANGE_TITLE';
 
 const getNextId = posts => {
   return posts.reduce((max, post) => {
@@ -30,11 +32,24 @@ const posts = (state = data, action) => {
   switch(action.type) {
   	case SUBMIT_POST:
       return [
-        Object.assign({}, action.post, {id: getNextId(state), vote: 0 }), ...state
+        Object.assign({}, action.post, {
+          id: getNextId(state), 
+          vote: 0,
+          editing: false }), ...state
       ];
     case CHANGE_VOTE:
       state.map(post => {if(post.id === action.id){
         post.vote += (action.status === true) ? 1 : -1;
+      }});
+      return [...state];
+    case CHANGE_EDITING:
+      state.map(post => {if(post.id === action.id){
+        post.editing = action.status;
+      }});
+      return [...state];
+    case CHANGE_TITLE:
+      state.map(post => {if(post.id === action.id){
+        post.title = action.title;
       }});
       return [...state];
   	default:
