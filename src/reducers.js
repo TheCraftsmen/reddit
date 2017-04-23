@@ -2,7 +2,8 @@ import { combineReducers } from 'redux';
 import data from './data';
 
 const initialStateEditor = {
-  title: ''
+  title: '',
+  vote: 0
 };
 const SUBMIT_POST = 'SUBMIT_POST';
 const TITLE_CHANGE = 'TITLE_CHANGE';
@@ -28,7 +29,7 @@ const posts = (state = data, action) => {
   switch(action.type) {
   	case SUBMIT_POST:
       return [
-        Object.assign({}, action.post, {id: getNextId(state) }), ...state
+        Object.assign({}, action.post, {id: getNextId(state), vote: 0 }), ...state
       ];
   	default:
       return state;

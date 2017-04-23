@@ -2,10 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 
-const Post = ({ id, title }) => {
+const Post = ({ posts, id, title, vote }) => {
+	console.log("dibuja el post")
+	console.log(posts, id, title)
 	return(
 
-		<li> { title } </li>
+		<li>
+		<div>
+			<h5>{ title }</h5>
+			<p>{ vote }</p>
+		</div>  
+		</li>
 		)
 }
 

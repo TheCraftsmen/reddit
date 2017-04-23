@@ -2,11 +2,13 @@ const data = [
 
 	{
 		id:1,
-		title: "primer post"
+		title: "primer post",
+		vote: 0
 	},
 	{
 		id:2,
-		title: "segundo post"
+		title: "segundo post",
+		vote: 0
 	},
 
 ]
