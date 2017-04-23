@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 
 
 const PostForm = ( data ) => {
-	console.log("en el form")
-	console.log(data);
 	return(
 		<div>
 			<input type="text" value={ data.editor.title } onChange={ 

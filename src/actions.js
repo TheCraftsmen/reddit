@@ -3,6 +3,7 @@ const TITLE_CHANGE = 'TITLE_CHANGE';
 const CHANGE_VOTE = 'CHANGE_VOTE';
 const CHANGE_EDITING = 'CHANGE_EDITING';
 const CHANGE_TITLE = 'CHANGE_TITLE';
+const VERIFY_ENTER = 'VERIFY_ENTER';
 
 export function submitPost(post) {
   return dispatch => {
@@ -49,6 +50,17 @@ export function changeTitle(id, title){
       type: CHANGE_TITLE,
       id: id,
       title: title
+    });
+  }
+}
+
+
+export function verifyEnter(id, key){
+  return dispatch => {
+    dispatch({
+      type: VERIFY_ENTER,
+      id: id,
+      key: key
     });
   }
 }

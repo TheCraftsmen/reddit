@@ -1,9 +1,9 @@
 import React from 'react';
-import { changeVote, changeEditing, changeTitle } from './actions';
+import { changeVote, changeEditing, changeTitle, verifyEnter } from './actions';
 import { connect } from 'react-redux';
 
 
-const Post = ({ posts, id, title, vote, editing, changeVote, changeEditing, changeTitle }) => {
+const Post = ({ posts, id, title, vote, editing, changeVote, changeEditing, changeTitle, verifyEnter }) => {
 	return(
 
 		<li>
@@ -13,7 +13,8 @@ const Post = ({ posts, id, title, vote, editing, changeVote, changeEditing, chan
 				type="text" 
 				defaultValue={ title} 
 				onChange={ e => changeTitle(id, e.target.value)}
-				onBlur={ e => changeEditing(id, false) }/> : 
+				onKeyPress={ e => verifyEnter(id, e.key)} 
+				onBlur={ e => changeEditing(id, false) }/> :
 				<h5 onClick={ e => changeEditing(id, true) }>{ title }</h5> } 
 			<p>
 			<a onClick={ e=> changeVote( id, false)}> - </a> 
@@ -25,4 +26,4 @@ const Post = ({ posts, id, title, vote, editing, changeVote, changeEditing, chan
 }
 
 
-export default connect( state => state, {changeVote, changeEditing, changeTitle})(Post);
+export default connect( state => state, {changeVote, changeEditing, changeTitle, verifyEnter})(Post);

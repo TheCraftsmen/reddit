@@ -10,6 +10,7 @@ const TITLE_CHANGE = 'TITLE_CHANGE';
 const CHANGE_VOTE = 'CHANGE_VOTE';
 const CHANGE_EDITING = 'CHANGE_EDITING';
 const CHANGE_TITLE = 'CHANGE_TITLE';
+const VERIFY_ENTER = 'VERIFY_ENTER';
 
 const getNextId = posts => {
   return posts.reduce((max, post) => {
@@ -51,6 +52,13 @@ const posts = (state = data, action) => {
       state.map(post => {if(post.id === action.id){
         post.title = action.title;
       }});
+      return [...state];
+    case VERIFY_ENTER:
+      console.log("clave", action)
+      state.map(post => {if(post.id === action.id && action.key === "Enter"){
+        post.editing = false;
+      }});
+      console.log(state, action)
       return [...state];
   	default:
       return state;
