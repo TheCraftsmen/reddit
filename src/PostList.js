@@ -4,7 +4,6 @@ import Post from './Post';
 import { connect } from 'react-redux';
 
 const PostList = (data) => {
-  console.log(data);
   return (
        <ul >
          {

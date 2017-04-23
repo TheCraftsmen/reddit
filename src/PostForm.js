@@ -1,14 +1,20 @@
 import React from 'react';
+import { titleChange, submitPost } from './actions';
 import { connect } from 'react-redux';
 
 
-const PostForm = ( { data }) => {
+const PostForm = ( data ) => {
 	console.log("en el form")
 	console.log(data);
 	return(
-		<input type="text" name="create_post" placeholder="ingrese" />
+		<div>
+			<input type="text" value={ data.editor.title } onChange={ 
+				e => data.titleChange(e.target.value) }/>
+			<button onClick={ 
+				e => data.submitPost({ "title": data.editor.title}) } >asignar</button>
+		</div>
 		)
 }
 
 
-export default connect( state => state, {})(PostForm);
+export default connect( state => state, { titleChange, submitPost })(PostForm);
