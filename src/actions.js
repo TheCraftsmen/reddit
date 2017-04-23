@@ -1,5 +1,6 @@
 const SUBMIT_POST = 'SUBMIT_POST';
 const TITLE_CHANGE = 'TITLE_CHANGE';
+const CHANGE_VOTE = 'CHANGE_VOTE';
 
 export function submitPost(post) {
   return dispatch => {
@@ -18,3 +19,15 @@ export function titleChange(title) {
     });
   };
 };
+
+
+export function changeVote(id, status){
+  return dispatch => {
+    dispatch({
+      type: CHANGE_VOTE,
+      id: id,
+      status: status
+    })
+  }
+
+}
