@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux'
 import data from './data';
 
 const initialStateEditor = {
@@ -66,5 +67,5 @@ const posts = (state = data, action) => {
 };
 
 
-const reducer = combineReducers({editor, posts});
+const reducer = combineReducers({editor, posts, routing: routerReducer});
 export default reducer;

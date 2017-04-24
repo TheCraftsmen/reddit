@@ -8,7 +8,7 @@ export const configureStore = () => {
   const storeWithMiddlewares = applyMiddleware(
     thunk,
     promise,
-    createLogger()
+    createLogger(), 
   );
   return createStore(reducer, storeWithMiddlewares);
 };
