@@ -4,7 +4,7 @@ class Edit extends Component {
   render() {
     return (
       <div>
-      <h1>Edit</h1>
+      <h1>Edit { this.props.params.postId}</h1>
       </div>
     );
   }

@@ -19,8 +19,8 @@ ReactDOM.render(
     <Router history={ history }>
       <Route path="/" component={App} />
       <Route path="/add" component={Add}/>
-      <Route path="/edit" component={Edit}/>
-      <Route path="/comments" component={Comments}/>	
+      <Route path="/edit/:postId" component={Edit}/>
+      <Route path="/comments/:postId" component={Comments}/>	
     </Router>
   </Provider>,
   document.getElementById('root')
