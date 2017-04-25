@@ -4,6 +4,7 @@ const CHANGE_VOTE = 'CHANGE_VOTE';
 const CHANGE_EDITING = 'CHANGE_EDITING';
 const CHANGE_TITLE = 'CHANGE_TITLE';
 const VERIFY_ENTER = 'VERIFY_ENTER';
+const FILTER_BY_ID = 'FILTER_BY_ID';
 
 export function submitPost(post) {
   return dispatch => {
@@ -13,6 +14,17 @@ export function submitPost(post) {
     });
   };
 };
+
+
+export function filterById(id) {
+  return dispatch => {
+    dispatch({
+      type: FILTER_BY_ID,
+      id: id
+    })
+  }
+
+}
 
 export function titleChange(title) {
   return dispatch => {
