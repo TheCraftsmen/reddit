@@ -13,6 +13,7 @@ const CHANGE_EDITING = 'CHANGE_EDITING';
 const CHANGE_TITLE = 'CHANGE_TITLE';
 const VERIFY_ENTER = 'VERIFY_ENTER';
 const FILTER_BY_ID = 'FILTER_BY_ID';
+const COMMENTS_BY_POST_ID = 'COMMENTS_BY_POST_ID';
 
 const getNextId = posts => {
   return posts.reduce((max, post) => {
@@ -52,6 +53,9 @@ var comments_data = [
 
 const comments = (state = comments_data, action) => {
   switch(action.type) {
+    case COMMENTS_BY_POST_ID:
+      let new_state = state.filter(cmms => cmms.post_id == action.id )
+      return new_state[0]
     default:
       return state;
   }
